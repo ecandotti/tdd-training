@@ -1,7 +1,8 @@
 export interface AuthenticationGateway {
-  register(email: string, password: string): RegisterResponse;
+  register(email: string, confirmEmail: string, password: string): RegisterResponse;
+  login(email: string, password: string): LoginResponse;
 }
 
-export type RegisterResponse =
-  | { token: string }
-  | { token: null; message: "Une erreur est survenue" };
+export type RegisterResponse = { token: string } | { token: null; message: string };
+
+export type LoginResponse = { token: string } | { token: null; message: string };
